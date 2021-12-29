@@ -41,10 +41,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAuth = FirebaseAuth.getInstance();
 
         // diatur sesuai id komponennya
-        edtEmail = (EditText)findViewById(R.id.tvemail);
-        edtPass = (EditText)findViewById(R.id.tv_pass);
-        btnMasuk = (Button) findViewById(R.id.btn_masuk);
-        btnDaftar = (Button)findViewById(R.id.btn_daftar);
+        edtEmail    = findViewById(R.id.tvemail);
+        edtPass     = findViewById(R.id.tv_pass);
+        btnMasuk    = findViewById(R.id.btn_masuk);
+        btnDaftar   = findViewById(R.id.btn_daftar);
 
         //nambahin method onClick, biar tombolnya bisa diklik
         btnMasuk.setOnClickListener(this);
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             onAuthSuccess(task.getResult().getUser());
 
                             //pindah halaman
-                            startActivity(new Intent(LoginActivity.this, MainActivity2.class));
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
                         } else {
                             Toast.makeText(LoginActivity.this, "Sign In Failed",
@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         writeNewAdmin(user.getUid(), username, user.getEmail());
 
         // Go to MainActivity
-        startActivity(new Intent(LoginActivity.this, MainActivity2.class));
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }
 

@@ -1,40 +1,61 @@
 package com.example.dailytask;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "LoginActivity";
-    
-    private Button btnget;
-    
+    private ImageView imgSchedule;
+    private ImageView imgActivity;
+    private FloatingActionButton addSchedule;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnget = findViewById(R.id.btn_get);
+       @SuppressLint("WrongViewCast")
+       ImageView imgSchedule = findViewById(R.id.img_icSchedule);
+       ImageView imgActivity = findViewById(R.id.img_icActivity);
+       addSchedule = findViewById(R.id.add_schedule);
 
-        btnget.setOnClickListener(new View.OnClickListener() {
+        imgSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, AddScheduleActivity.class));
+//                -->dipindah ke btn addschedule
 
-               // Perintah Intent Explicit pindah halaman ke activity_login
-              startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                // Perintah Intent Explicit pindah halaman daftar schedule
+
             }
         });
 
+       imgActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Perintah Intent Explicit pindah halaman
+                startActivity(new Intent(MainActivity.this, MainActivity4.class));
+            }
+        });
+
+       addSchedule.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+//               Intent ke activity tambah
+               Intent i = new Intent(view.getContext(), AddScheduleActivity.class);
+               startActivity(i);
+           }
+       });
+
     }
 }
+

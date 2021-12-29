@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity3"
+    tools:context=".AddScheduleActivity"
     android:orientation="vertical">
 
     <View
@@ -26,41 +25,41 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BUAT ACARA"
+            android:text="@string/buatacara"
             android:layout_marginTop="50dp"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/orange"
-            android:textSize="30dp">
+            android:textAllCaps="true"
+            android:textSize="30sp">
         </TextView>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukan Judul"
+            android:hint="@string/judul"
             android:layout_marginTop="20dp"
-            android:id="@+id/et_judul">
-        </EditText>
+            android:id="@+id/et_judul"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Catatan"
+            android:hint="@string/catatan"
             android:layout_marginTop="20dp"
-            android:id="@+id/et_ctt">
-        </EditText>
+            android:id="@+id/et_ctt"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Acara"
+            android:hint="@string/acara"
             android:layout_marginTop="20dp"
-            android:id="@+id/et_acara">
-        </EditText>
+            android:id="@+id/et_acara"/>
 
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Ingatkan"
-            android:textSize="20dp"
+            android:text="@string/ingatkan"
+            android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:textStyle="bold"/>
 
@@ -68,17 +67,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tanggal"
+            android:text="@string/tanggal"
             android:id="@+id/tv_tanggal"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:textStyle="bold"/>
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="BUAT"
+            android:text="@string/buatacara"
             android:id="@+id/btn_buat"
             android:layout_marginTop="20dp"/>
 
