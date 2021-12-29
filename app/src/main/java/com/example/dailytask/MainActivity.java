@@ -21,9 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       @SuppressLint("WrongViewCast")
-       ImageView imgSchedule = findViewById(R.id.img_icSchedule);
-       ImageView imgActivity = findViewById(R.id.img_icActivity);
+       imgSchedule = findViewById(R.id.img_icSchedule);
+       imgActivity = findViewById(R.id.img_icActivity);
        addSchedule = findViewById(R.id.add_schedule);
 
         imgSchedule.setOnClickListener(new View.OnClickListener() {
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 //                -->dipindah ke btn addschedule
 
                 // Perintah Intent Explicit pindah halaman daftar schedule
-
+                startActivity(new Intent(v.getContext(), ShowSchedules.class));
             }
         });
 
