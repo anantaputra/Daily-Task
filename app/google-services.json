@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "24032585208",
+    "project_id": "latihan-6fa6b",
+    "storage_bucket": "latihan-6fa6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24032585208:android:be92c19580f5f0c1c8220d",
+        "android_client_info": {
+          "package_name": "com.example.dailytask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24032585208-8crg7t99qqcar7m5n3mp8e798p7bmeta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHFaBr-vuineoskcvd7lP3gLD7JqJDfyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24032585208-8crg7t99qqcar7m5n3mp8e798p7bmeta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
