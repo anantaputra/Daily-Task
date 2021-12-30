@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,26 +7,19 @@
     tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-        android:id="@+id/rl_image"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/add_schedule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="320dp"
-                android:layout_marginBottom="40dp"
-                android:backgroundTint="@color/orange"
-                android:src="@drawable/ic_tambah"
-                app:borderWidth="0dp" />
+            android:id="@+id/rl_image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/img_image"
@@ -38,23 +31,23 @@
                 android:id="@+id/tv_textStart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/start"
-                android:textSize="20sp"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="45dp"
+                android:text="@string/start"
                 android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_textYour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/task"
-                android:textSize="20sp"
-                android:layout_marginStart="45dp"
                 android:layout_below="@id/tv_textStart"
+                android:layout_marginStart="45dp"
+                android:text="@string/task"
                 android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="350dp"
@@ -67,13 +60,13 @@
                 android:id="@+id/tv_textMytask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/mytask"
                 android:layout_below="@id/img_image"
-                android:textSize="20sp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/orange"
                 android:layout_marginStart="45dp"
-                android:textStyle="bold"/>
+                android:layout_marginTop="5dp"
+                android:text="@string/mytask"
+                android:textColor="@color/orange"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/img_icSchedule"
@@ -88,11 +81,11 @@
                 android:id="@+id/tv_textSchedule"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/schedule"
-                android:textSize="15sp"
+                android:layout_below="@id/img_icSchedule"
                 android:layout_marginStart="50dp"
+                android:text="@string/schedule"
                 android:textColor="@color/black"
-                android:layout_below="@id/img_icSchedule"/>
+                android:textSize="15sp" />
 
             <ImageView
                 android:id="@+id/img_icActivity"
@@ -107,39 +100,52 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/activity"
-                android:textSize="15sp"
+                android:layout_below="@id/img_icSchedule"
                 android:layout_marginStart="50dp"
-                android:textColor="@color/black"
                 android:layout_toEndOf="@id/tv_textSchedule"
-                android:layout_below="@id/img_icSchedule"/>
+                android:text="@string/activity"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_textOngoing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ongoing"
                 android:layout_below="@id/img_icSchedule"
-                android:textSize="20sp"
-                android:layout_marginTop="35dp"
-                android:textColor="@color/orange"
                 android:layout_marginStart="45dp"
-                android:textStyle="bold"/>
+                android:layout_marginTop="35dp"
+                android:text="@string/ongoing"
+                android:textColor="@color/orange"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_content"
-                android:layout_below="@id/tv_textOngoing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/tv_textOngoing"
                 android:layout_margin="20dp"
                 android:layout_marginTop="10dp"
-                app:cardCornerRadius="8dp"/>
+                app:cardCornerRadius="8dp" />
 
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/orange"
+        android:src="@drawable/ic_tambah"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
