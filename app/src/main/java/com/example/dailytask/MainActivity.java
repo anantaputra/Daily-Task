@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Perintah Intent Explicit pindah halaman
-                startActivity(new Intent(MainActivity.this, MainActivity4.class));
+                startActivity(new Intent(MainActivity.this, ShowActivities.class));
             }
         });
 
