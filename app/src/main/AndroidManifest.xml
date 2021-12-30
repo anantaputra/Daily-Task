@@ -10,17 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyTask">
         <activity
-            android:name=".MainActivity4"
+            android:name=".ShowActivities"
             android:exported="false" />
         <activity
-            android:name=".AddScheduleActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+            android:name=".AddActivities"
+            android:exported="true" />
         <activity
             android:name=".OpeningActivity"
             android:exported="true">
@@ -30,6 +24,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddScheduleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowSchedules"
+            android:exported="true" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

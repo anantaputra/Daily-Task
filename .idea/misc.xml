@@ -10,6 +10,17 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DailyTask/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DailyTask/app/src/main/res/layout/activity_main2.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DailyTask/app/src/main/res/layout/item_content.xml" value="0.21422101449275363" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/drawable/ic_delete.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/drawable/ic_edit.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/drawable/ic_tambah.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/layout/activity_add_schedule.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/layout/activity_login.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/layout/activity_main.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/layout/activity_opening.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/layout/activity_show_activities.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/layout/list_item.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/layout/list_item_activities.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/indah/AndroidStudioProjects/Daily-Task/app/src/main/res/layout/show_schedules.xml" value="0.1644021739130435" />
         <entry key="..\:/Users/indah/AndroidStudioProjects/DailyTask/app/src/main/res/drawable/ic_activity.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/indah/AndroidStudioProjects/DailyTask/app/src/main/res/drawable/ic_login.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/indah/AndroidStudioProjects/DailyTask/app/src/main/res/drawable/ic_run.xml" value="0.22447916666666667" />
@@ -22,10 +33,15 @@
         <entry key="..\:/androidstudio/DailyTask/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
         <entry key="..\:/androidstudio/DailyTask/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/androidstudio/DailyTask/app/src/main/res/layout/activity_main3.xml" value="0.20416666666666666" />
+        <entry key="..\:/androidstudio/DailyTask/app/src/main/res/layout/activity_main4.xml" value="0.22" />
+        <entry key="..\:/androidstudio/DailyTask/app/src/main/res/layout/activity_opening.xml" value="0.18" />
+        <entry key="..\:/androidstudio/DailyTask/app/src/main/res/layout/activity_show_activities.xml" value="0.20416666666666666" />
+        <entry key="..\:/androidstudio/DailyTask/app/src/main/res/layout/item_content.xml" value="0.20416666666666666" />
+        <entry key="..\:/androidstudio/DailyTask/app/src/main/res/layout/list_item.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
