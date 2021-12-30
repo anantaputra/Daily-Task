@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyTask">
         <activity
+            android:name=".Activity_Register"
+            android:exported="false" />
+        <activity
+            android:name=".ShowAlarm"
+            android:exported="false" />
+        <activity
             android:name=".ShowActivities"
             android:exported="false" />
         <activity
