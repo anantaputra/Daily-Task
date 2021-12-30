@@ -1,33 +1,42 @@
 {
   "project_info": {
-    "project_number": "24032585208",
-    "project_id": "latihan-6fa6b",
-    "storage_bucket": "latihan-6fa6b.appspot.com"
+    "project_number": "1022037597875",
+    "firebase_url": "https://daily-task-apb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "daily-task-apb",
+    "storage_bucket": "daily-task-apb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:24032585208:android:be92c19580f5f0c1c8220d",
+        "mobilesdk_app_id": "1:1022037597875:android:a63d68da86011918115ac6",
         "android_client_info": {
           "package_name": "com.example.dailytask"
         }
       },
       "oauth_client": [
         {
-          "client_id": "24032585208-8crg7t99qqcar7m5n3mp8e798p7bmeta.apps.googleusercontent.com",
+          "client_id": "1022037597875-l6h4adkiv7h9k2rbts54oni9l6k3mf30.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dailytask",
+            "certificate_hash": "63ebccdab993bd683deeb1078fbe89cdf0cf293c"
+          }
+        },
+        {
+          "client_id": "1022037597875-48g7v9lomgauaboa8nunr7sp89nj353s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAHFaBr-vuineoskcvd7lP3gLD7JqJDfyA"
+          "current_key": "AIzaSyB4pqXD6H5qCM56f61NsZW3Z6SScI51frY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "24032585208-8crg7t99qqcar7m5n3mp8e798p7bmeta.apps.googleusercontent.com",
+              "client_id": "1022037597875-48g7v9lomgauaboa8nunr7sp89nj353s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
