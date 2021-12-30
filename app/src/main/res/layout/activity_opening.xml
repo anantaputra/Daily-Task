@@ -5,54 +5,60 @@
     android:layout_height="match_parent"
     tools:context=".OpeningActivity">
 
-   <ImageView
-       android:id="@+id/img_image1"
-       android:layout_width="300dp"
-       android:layout_height="300dp"
-       android:layout_centerHorizontal="true"
-       android:layout_marginTop="50dp"
-       android:src="@drawable/image4" />
-
-   <TextView
-       android:id="@+id/tv_textManage"
-       android:layout_width="wrap_content"
+   <LinearLayout
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_below="@+id/img_image1"
-       android:layout_marginTop="30dp"
-       android:layout_marginStart="75dp"
-       android:text="@string/manage"
-       android:textSize="30sp"
-       />
+       android:orientation="vertical">
 
-   <TextView
-       android:id="@+id/tv_textYour"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/tv_textManage"
-       android:text="@string/your"
-       android:layout_marginStart="75dp"
-       android:textSize="30sp"
-       />
+      <ImageView
+          android:id="@+id/img_image1"
+          android:layout_width="300dp"
+          android:layout_height="300dp"
+          android:layout_marginTop="30dp"
+          android:layout_weight="2"
+          android:layout_gravity="center_horizontal"
+          android:src="@drawable/image4" />
 
-   <TextView
-       android:id="@+id/tv_textDaily"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/tv_textYour"
-       android:text="@string/app_name"
-       android:layout_marginStart="75dp"
-       android:textSize="30sp"
-       />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:layout_marginStart="75dp"
+          android:paddingVertical="5dp"
+          android:orientation="vertical">
 
-   <Button
-       android:layout_below="@id/tv_textDaily"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="30dp"
-       android:layout_centerInParent="true"
-       android:background="@drawable/tombol_started"
-       android:text="@string/getstarted"
-       android:id="@+id/btn_get"/>
+         <TextView
+             android:id="@+id/tv_textManage"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/manage"
+             android:textSize="30sp" />
 
+         <TextView
+             android:id="@+id/tv_textYour"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/your"
+             android:textSize="30sp" />
+
+         <TextView
+             android:id="@+id/tv_textDaily"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/app_name"
+             android:textSize="30sp" />
+      </LinearLayout>
+
+      <Button
+          android:id="@+id/btn_get"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerInParent="true"
+          android:layout_marginTop="20dp"
+          android:layout_gravity="center_horizontal"
+          android:background="@drawable/tombol_started"
+          android:text="@string/getstarted"/>
+
+   </LinearLayout>
 
 </RelativeLayout>

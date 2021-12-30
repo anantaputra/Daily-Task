@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,10 +28,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
-    private EditText edtEmail;
-    private EditText edtPass;
+    private EditText edtEmail, edtPass;
     private Button btnMasuk;
-    private Button btnDaftar;
+    private TextView register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +44,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edtEmail    = findViewById(R.id.tvemail);
         edtPass     = findViewById(R.id.tv_pass);
         btnMasuk    = findViewById(R.id.btn_masuk);
-        btnDaftar   = findViewById(R.id.btn_daftar);
+        register    = findViewById(R.id.register_link);
 
         //nambahin method onClick, biar tombolnya bisa diklik
         btnMasuk.setOnClickListener(this);
-        btnDaftar.setOnClickListener(this);
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), RegisterActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 
@@ -71,8 +78,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         //hideProgressDialog();
 
                         if (task.isSuccessful()) {
-                            onAuthSuccess(task.getResult().getUser());
-
                             //pindah halaman
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
@@ -82,59 +87,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
-    }
-
-    //fungsi ini untuk mendaftarkan data pengguna ke Firebase
-    private void signUp() {
-        Log.d(TAG, "signUp");
-        if (!validateForm()) {
-            return;
-        }
-
-        //showProgressDialog();
-        String email = edtEmail.getText().toString();
-        String password = edtPass.getText().toString();
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "createUser:onComplete:" + task.isSuccessful());
-                        //hideProgressDialog();
-
-                        if (task.isSuccessful()) {
-                            onAuthSuccess(task.getResult().getUser());
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Sign Up Failed",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
-
-    //fungsi dipanggil ketika proses Authentikasi berhasil
-    private void onAuthSuccess(FirebaseUser user) {
-        String username = usernameFromEmail(user.getEmail());
-
-        // membuat User admin baru
-        writeNewAdmin(user.getUid(), username, user.getEmail());
-
-        // Go to MainActivity
-        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-        finish();
-    }
-
-    /*
-        ini fungsi buat bikin username dari email
-            contoh email: abcdefg@mail.com
-            maka username nya: abcdefg
-     */
-    private String usernameFromEmail(String email) {
-        if (email.contains("@")) {
-            return email.split("@")[0];
-        } else {
-            return email;
-        }
     }
 
     //fungsi untuk memvalidasi EditText email dan password agar tak kosong dan sesuai format
@@ -157,20 +109,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return result;
     }
 
-    // menulis ke Database
-    private void writeNewAdmin(String userId, String name, String email) {
-        Admin admin = new Admin(name, email);
-
-        mDatabase.child("admins").child(userId).setValue(admin);
-    }
-
     @Override
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.btn_masuk) {
             signIn();
-        } else if (i == R.id.btn_daftar) {
-            signUp();
         }
     }
 
