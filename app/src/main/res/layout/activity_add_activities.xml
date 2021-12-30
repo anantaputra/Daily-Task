@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShowActivities">
+    tools:context=".AddActivities">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -160,7 +160,13 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/tv_textTarget" />
                     </RelativeLayout>
-
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/simpan"
+                        android:id="@+id/btn_simpan"
+                        android:layout_marginTop="20dp"/>
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
