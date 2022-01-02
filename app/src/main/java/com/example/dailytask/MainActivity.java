@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.dailytask.account.LoginActivity;
 import com.example.dailytask.adapter.OnGoingScheduleAdapter;
 import com.example.dailytask.adapter.ScheduleAdapter;
 import com.example.dailytask.addData.AddActivityActivity;
@@ -39,13 +40,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ImageView imgSchedule, imgActivity;
     private TextView schedule, activity;
-    private FloatingActionButton add;
+    private FloatingActionButton add, logout;
     private AlertDialog.Builder dialog;
     private OnGoingScheduleAdapter adapterSchedule;
     private RecyclerView recyclerViewSchedule, recyclerViewActivity;
     private ArrayList<Schedule> results;
     private String userID = "";
     private String username = "";
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +60,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         schedule    = findViewById(R.id.schedule_show);
         activity    = findViewById(R.id.activity_show);
         add         = findViewById(R.id.add);
+        logout      = findViewById(R.id.logout);
 
         //hide schedule and activity category
         schedule.setVisibility(View.GONE);
         activity.setVisibility(View.GONE);
 
         //get current username
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        userID = user.getUid();
+        mAuth = FirebaseAuth.getInstance();
+        userID = getIntent().getStringExtra("userID");
 
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("users");
 
@@ -87,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgActivity.setOnClickListener(this);
         imgSchedule.setOnClickListener(this);
         add.setOnClickListener(this);
+        logout.setOnClickListener(this);
 
         //setup recyclerview schedule
         rvSchedule();
@@ -147,9 +151,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             showActivitiesList();
         } if (i == R.id.img_icSchedule){
             showSchedulesList();
-        } else {
+        } if (i == R.id.add){
             showDialogChoices();
+        } if (i == R.id.logout){
+            SignOut();
         }
+    }
+
+    private void SignOut() {
+        mAuth.signOut();
+        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(i);
     }
 
     private void showActivitiesList() {

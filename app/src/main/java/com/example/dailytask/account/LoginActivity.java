@@ -13,11 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dailytask.MainActivity;
+import com.example.dailytask.OpeningActivity;
 import com.example.dailytask.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,6 +30,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth mAuth;
     private EditText edtEmail, edtPass;
     private Button btnMasuk;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null){
+            String userID = user.getUid();
+
+            //when login success show Main Activity
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            i.putExtra("userID", userID);
+            startActivity(i);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +97,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+                            //get current user
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            String userID = user.getUid();
+
                             //when login success show Main Activity
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            i.putExtra("userID", userID);
                             startActivity(i);
                         } else {
                             Toast.makeText(LoginActivity.this, "Sign in Failed", Toast.LENGTH_SHORT).show();

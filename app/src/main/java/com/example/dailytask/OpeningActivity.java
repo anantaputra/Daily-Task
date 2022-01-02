@@ -8,10 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.dailytask.account.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class OpeningActivity extends AppCompatActivity {
 
     private Button btnget;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,18 @@ public class OpeningActivity extends AppCompatActivity {
 
         //get component by their id
         btnget = findViewById(R.id.btn_get);
+
+        mAuth       = FirebaseAuth.getInstance();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null){
+            String userID = user.getUid();
+
+            //when login success show Main Activity
+            Intent i = new Intent(OpeningActivity.this, MainActivity.class);
+            i.putExtra("userID", userID);
+            startActivity(i);
+        }
 
         //set on click to Login Activity
         btnget.setOnClickListener(new View.OnClickListener() {

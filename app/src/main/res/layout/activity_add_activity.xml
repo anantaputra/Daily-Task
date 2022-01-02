@@ -6,4 +6,227 @@
     android:layout_height="match_parent"
     tools:context=".addData.AddActivityActivity">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/orange"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="-150dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:gravity="center"
+                    android:text="OLAHRAGA"
+                    android:textColor="@color/orange"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:text="Profil"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_textJeniskelamin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jenis Kelamin"
+                            android:textColor="@color/biru"
+                            android:textStyle="bold" />
+
+                        <Spinner
+                            android:id="@+id/list"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_textJeniskelamin"
+                            android:entries="@array/dropdown_jeniskelamin" />
+
+                        <TextView
+                            android:id="@+id/tv_textTinggi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/list"
+                            android:layout_marginTop="10dp"
+                            android:text="Tinggi Badan"
+                            android:textColor="@color/biru"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_tinggi"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_below="@id/tv_textTinggi">
+
+                            <EditText
+                                android:id="@+id/ed_textTinggi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="Tinggi Badan"
+                                android:inputType="numberSigned|number" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cm"
+                                android:textSize="16sp"
+                                android:textColor="@color/black"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_textBerat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/layout_tinggi"
+                            android:layout_marginTop="10dp"
+                            android:text="Berat Badan"
+                            android:textColor="@color/biru"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_berat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_below="@id/tv_textBerat">
+
+                            <EditText
+                                android:id="@+id/ed_textBerat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_textBerat"
+                                android:hint="Berat Badan"
+                                android:inputType="numberSigned|number"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kg"
+                                android:textSize="16sp"
+                                android:textColor="@color/black"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_textUmur"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/layout_berat"
+                            android:layout_marginTop="10dp"
+                            android:text="Umur"
+                            android:textColor="@color/biru"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_below="@id/tv_textUmur">
+
+                            <EditText
+                                android:id="@+id/ed_textUmur"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_textUmur"
+                                android:hint="Umur"
+                                android:inputType="numberSigned" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tahun"
+                                android:textSize="16sp"
+                                android:textColor="@color/black"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Target"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_textTarget"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Target Olahraga"
+                            android:textColor="@color/biru"
+                            android:textStyle="bold" />
+
+                        <Spinner
+                            android:id="@+id/listTargetOlahraga"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_textTarget" />
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btn_simpan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/simpan" />
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
