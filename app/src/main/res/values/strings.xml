@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Daily Task</string>
+    <string name="manage">Manage</string>
+    <string name="your">Your</string>
+    <string name="task">Your Task</string>
+    <string name="getstarted">   GET STARTED   </string>
+    <string name="buatacara">buat acara</string>
+    <string name="judul">Judul</string>
+    <string name="catatan">Catatan</string>
+    <string name="acara">Acara</string>
+    <string name="ingatkan">Ingatkan</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="start">Start Managing</string>
+    <string name="mytask">My Task</string>
+    <string name="schedule">Schedule</string>
+    <string name="activity">Activity</string>
+    <string name="ongoing">On Going</string>
+    <string name="simpan">Simpan</string>
+</resources>
