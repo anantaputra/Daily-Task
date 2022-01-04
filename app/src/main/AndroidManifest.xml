@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyTask">
         <activity
+            android:name=".editData.EditActivityActivity"
+            android:exported="true" />
+        <activity
+            android:name=".editData.EditProfile"
+            android:exported="true" />
+        <activity
+            android:name=".editData.EditScheduleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".account.ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".addData.AddActivityActivity"
             android:exported="true" />
         <activity
@@ -31,6 +43,9 @@
             android:exported="true" />
         <activity
             android:name=".OpeningActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,9 +53,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

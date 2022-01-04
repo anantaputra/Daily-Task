@@ -19,6 +19,7 @@ import com.example.dailytask.R;
 import com.example.dailytask.model.Admin;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,6 +38,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        //set Toolbar
+        MaterialToolbar toolbar = findViewById(R.id.topAppBar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitleTextColor(getColor(R.color.white));
+        toolbar.setBackgroundColor(getColor(R.color.orange));
+
+        //set back button
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_round_arrow_back_24);
 
         // diatur sesuai id komponennya
         et_email    = findViewById(R.id.tvemail);
@@ -71,7 +83,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         //begin registration
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(RegisterActivity.this,
+                        new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "createUser:onComplete:" + task.isSuccessful());
@@ -132,5 +145,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
         return result;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

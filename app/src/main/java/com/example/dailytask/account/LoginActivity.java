@@ -17,6 +17,7 @@ import com.example.dailytask.OpeningActivity;
 import com.example.dailytask.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,28 +29,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView register;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+    FirebaseUser user;
     private EditText edtEmail, edtPass;
     private Button btnMasuk;
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null){
-            String userID = user.getUid();
-
-            //when login success show Main Activity
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            i.putExtra("userID", userID);
-            startActivity(i);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //set Toolbar
+        MaterialToolbar toolbar = findViewById(R.id.topAppBar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitleTextColor(getColor(R.color.white));
+        toolbar.setBackgroundColor(getColor(R.color.orange));
 
         // diatur sesuai id komponennya
         register    = findViewById(R.id.register_link);
@@ -60,6 +53,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //variabel tadi untuk memanggil fungsi
         mDatabase   = FirebaseDatabase.getInstance().getReference();
         mAuth       = FirebaseAuth.getInstance();
+
+        user = mAuth.getCurrentUser();
+        if (user != null){
+            String userID = user.getUid();
+
+            //when login success show Main Activity
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            i.putExtra("userID", userID);
+            startActivity(i);
+            return;
+        }
 
         //nambahin method onClick, biar tombolnya bisa diklik
         btnMasuk.setOnClickListener(this);
@@ -102,11 +106,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             String userID = user.getUid();
 
                             //when login success show Main Activity
-                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent i = new Intent(LoginActivity.this,
+                                    MainActivity.class);
                             i.putExtra("userID", userID);
                             startActivity(i);
                         } else {
-                            Toast.makeText(LoginActivity.this, "Sign in Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Sign in Failed",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -129,5 +135,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         return result;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+        startActivity(intent);
+        finish();
+        System.exit(1);
     }
 }

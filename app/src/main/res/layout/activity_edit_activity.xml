@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addData.AddActivityActivity">
+    tools:context=".editData.EditActivityActivity">
 
     <include
         android:id="@+id/include"
@@ -51,7 +51,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:gravity="center"
-                    android:text="OLAHRAGA"
+                    android:text="Update activity"
+                    android:textAllCaps="true"
                     android:textColor="@color/orange"
                     android:textSize="30dp"
                     android:textStyle="bold"/>
@@ -91,7 +92,7 @@
                             android:orientation="horizontal">
 
                             <EditText
-                                android:id="@+id/ed_textTinggi"
+                                android:id="@+id/ed_textTinggi_update"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:hint="Tinggi Badan"
@@ -124,7 +125,7 @@
                             android:layout_below="@id/tv_textBerat">
 
                             <EditText
-                                android:id="@+id/ed_textBerat"
+                                android:id="@+id/ed_textBerat_update"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/tv_textBerat"
@@ -169,7 +170,7 @@
                             android:textStyle="bold" />
 
                         <Spinner
-                            android:id="@+id/listTargetOlahraga"
+                            android:id="@+id/listTargetOlahraga_update"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:entries="@array/dropdown_TargetOlahraga" />
@@ -183,7 +184,7 @@
                             android:textStyle="bold"/>
 
                         <EditText
-                            android:id="@+id/et_time_activity"
+                            android:id="@+id/et_time_activity_update"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="00:00"

@@ -2,23 +2,22 @@ package com.example.dailytask.model;
 
 import com.google.firebase.database.Exclude;
 
-public class Schedule {
-
+public class Activity {
     @Exclude
     public String key;
-    public String catatan, acara, jam, menit, tanggal;
+    public String tinggi, berat, judul, jam, menit;
     public String mon, tue, wed, thu, fri, sat, sun;
 
-    public Schedule() {
+    public Activity() {
     }
 
-    public Schedule(String catatan, String acara, String jam, String menit, String tanggal,
-                    String mon, String tue, String wed, String thu, String fri, String sat, String sun) {
-        this.catatan = catatan;
-        this.acara = acara;
+    public Activity(String tinggi, String berat, String judul, String jam, String menit, String mon,
+                    String tue, String wed, String thu, String fri, String sat, String sun) {
+        this.tinggi = tinggi;
+        this.berat = berat;
+        this.judul = judul;
         this.jam = jam;
         this.menit = menit;
-        this.tanggal = tanggal;
         this.mon = mon;
         this.tue = tue;
         this.wed = wed;
@@ -36,20 +35,28 @@ public class Schedule {
         this.key = key;
     }
 
-    public String getCatatan() {
-        return catatan;
+    public String getTinggi() {
+        return tinggi;
     }
 
-    public void setCatatan(String catatan) {
-        this.catatan = catatan;
+    public void setTinggi(String tinggi) {
+        this.tinggi = tinggi;
     }
 
-    public String getAcara() {
-        return acara;
+    public String getBerat() {
+        return berat;
     }
 
-    public void setAcara(String acara) {
-        this.acara = acara;
+    public void setBerat(String berat) {
+        this.berat = berat;
+    }
+
+    public String getJudul() {
+        return judul;
+    }
+
+    public void setJudul(String judul) {
+        this.judul = judul;
     }
 
     public String getJam() {
@@ -66,14 +73,6 @@ public class Schedule {
 
     public void setMenit(String menit) {
         this.menit = menit;
-    }
-
-    public String getTanggal() {
-        return tanggal;
-    }
-
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
     }
 
     public String getMon() {

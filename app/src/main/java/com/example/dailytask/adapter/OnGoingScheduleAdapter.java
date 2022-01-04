@@ -3,6 +3,7 @@ package com.example.dailytask.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,7 +28,8 @@ public class OnGoingScheduleAdapter extends RecyclerView.Adapter<OnGoingSchedule
 
     @NonNull
     @Override
-    public OnGoingScheduleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public OnGoingScheduleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
+                                                                int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_schedule, parent, false);
         return new OnGoingScheduleAdapter.ViewHolder(v);
@@ -38,16 +40,24 @@ public class OnGoingScheduleAdapter extends RecyclerView.Adapter<OnGoingSchedule
         Schedule result = results.get(position);
 
         if (Integer.parseInt(result.getJam()) < 10){
-            holder.reminder.setText("0"+result.getJam()+":"+result.getMenit());
+            if (Integer.parseInt(result.getMenit()) < 10){
+                holder.reminder.setText("0"+result.getJam()+":"+"0"+result.getMenit());
+            } else {
+                holder.reminder.setText("0"+result.getJam()+":"+result.getMenit());
+            }
         } else {
-            holder.reminder.setText(result.getJam()+":"+result.getMenit());
+            if (Integer.parseInt(result.getMenit()) < 10){
+                holder.reminder.setText(result.getJam()+":"+"0"+result.getMenit());
+            } else {
+                holder.reminder.setText(result.getJam()+":"+result.getMenit());
+            }
         }
 
-        holder.title.setText(result.getJudul());
-        holder.event.setText(result.getAcara());
+        holder.title.setText(result.getAcara());
         holder.notes.setText(result.getCatatan());
         holder.every_day.setVisibility(View.GONE);
         holder.dates.setVisibility(View.GONE);
+        holder.delete.setVisibility(View.GONE);
     }
 
     @Override
@@ -56,14 +66,14 @@ public class OnGoingScheduleAdapter extends RecyclerView.Adapter<OnGoingSchedule
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView reminder, title, event, notes, every, monday, tuesday, wednesday, thursday, friday,
+        ImageView delete;
+        TextView reminder, title, notes, every, monday, tuesday, wednesday, thursday, friday,
                 saturday, sunday, date;
         LinearLayout every_day, dates;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             reminder    = itemView.findViewById(R.id.reminder_time);
             title       = itemView.findViewById(R.id.title);
-            event       = itemView.findViewById(R.id.event);
             notes       = itemView.findViewById(R.id.notes);
             every       = itemView.findViewById(R.id.every);
             monday      = itemView.findViewById(R.id.monday);
@@ -76,6 +86,7 @@ public class OnGoingScheduleAdapter extends RecyclerView.Adapter<OnGoingSchedule
             date        = itemView.findViewById(R.id.for_date);
             every_day   = itemView.findViewById(R.id.every_day);
             dates       = itemView.findViewById(R.id.dates);
+            delete      = itemView.findViewById(R.id.delete_btn);
         }
     }
 }

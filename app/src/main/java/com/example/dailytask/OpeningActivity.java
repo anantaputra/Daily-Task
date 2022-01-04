@@ -24,18 +24,6 @@ public class OpeningActivity extends AppCompatActivity {
         //get component by their id
         btnget = findViewById(R.id.btn_get);
 
-        mAuth       = FirebaseAuth.getInstance();
-
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null){
-            String userID = user.getUid();
-
-            //when login success show Main Activity
-            Intent i = new Intent(OpeningActivity.this, MainActivity.class);
-            i.putExtra("userID", userID);
-            startActivity(i);
-        }
-
         //set on click to Login Activity
         btnget.setOnClickListener(new View.OnClickListener() {
             @Override
