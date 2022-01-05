@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.example.dailytask.R;
 import com.example.dailytask.adapter.ScheduleAdapter;
 import com.example.dailytask.model.Schedule;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -60,20 +62,18 @@ public class ShowSchedules extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        results = new ArrayList<>();
-        adapter = new ScheduleAdapter(results);
-        recyclerView.setAdapter(adapter);
-
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                results = new ArrayList<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Schedule schedule = dataSnapshot.getValue(Schedule.class);
                     schedule.setKey(dataSnapshot.getKey());
                     key = dataSnapshot.getKey();
                     results.add(schedule);
                 }
-                adapter.notifyDataSetChanged();
+                adapter = new ScheduleAdapter(results);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
@@ -98,9 +98,17 @@ public class ShowSchedules extends AppCompatActivity {
             final int position = viewHolder.getAdapterPosition();
             switch (direction) {
                 case ItemTouchHelper.LEFT:
-                    Toast.makeText(recyclerView.getContext(), "" + position+", "+key, Toast.LENGTH_SHORT).show();
-                    adapter.notifyItemRemoved(position);
-
+                    myRef.child(key).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(ShowSchedules.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ShowSchedules.this, "Data gagal dihapus", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     break;
             }
         }
@@ -116,6 +124,8 @@ public class ShowSchedules extends AppCompatActivity {
             super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
         }
     };
+
+
 
     @Override
     public boolean onSupportNavigateUp() {

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.dailytask.MainActivity;
 import com.example.dailytask.R;
-import com.example.dailytask.model.Admin;
+import com.example.dailytask.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private EditText et_email, et_password;
     private Button btnDaftar;
-    private String email, password;
+    private String email, password, tglLahir, jenisKelamin, foto;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
 
@@ -49,6 +49,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_round_arrow_back_24);
+
+        //set variabel tgllahir dkk
+        tglLahir = "";
+        jenisKelamin = "";
 
         // diatur sesuai id komponennya
         et_email    = findViewById(R.id.tvemail);
@@ -104,20 +108,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void onAuthSuccess(FirebaseUser user) {
         String username = usernameFromEmail(user.getEmail());
+        foto = "https://firebasestorage.googleapis.com/v0/b/daily-task-apb.appspot.com/o/1641387365558.jpg?alt=media&token=a856a36a-5774-404a-bb93-66f6346b49d3";
 
         //write new admin to firebase
-        writeNewAdmin(user.getUid(), username, user.getEmail());
+        writeNewAdmin(user.getUid(), username, user.getEmail(), foto);
 
         // Go to MainActivity
         startActivity(new Intent(RegisterActivity.this, MainActivity.class));
         finish();
     }
 
-    private void writeNewAdmin(String uid, String username, String email) {
-        Admin admin = new Admin(username, email);
+    private void writeNewAdmin(String uid, String username, String email, String imgUrl) {
+        User user = new User(username, jenisKelamin, tglLahir, email, imgUrl);
 
         //push new user to Realtime database
-        mDatabase.child("users").child(uid).setValue(admin);
+        mDatabase.child("users").child(uid).setValue(user);
     }
 
     private String usernameFromEmail(String email) {

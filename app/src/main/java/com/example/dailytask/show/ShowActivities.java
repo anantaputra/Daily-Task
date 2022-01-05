@@ -16,6 +16,8 @@ import com.example.dailytask.adapter.ActivityAdapter;
 import com.example.dailytask.adapter.ScheduleAdapter;
 import com.example.dailytask.model.Activity;
 import com.example.dailytask.model.Schedule;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -64,20 +66,18 @@ public class ShowActivities extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        results = new ArrayList<>();
-        adapter = new ActivityAdapter(results);
-        recyclerView.setAdapter(adapter);
-
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                results = new ArrayList<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Activity activity = dataSnapshot.getValue(Activity.class);
                     activity.setKey(dataSnapshot.getKey());
                     key = dataSnapshot.getKey();
                     results.add(activity);
                 }
-                adapter.notifyDataSetChanged();
+                adapter = new ActivityAdapter(results);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
@@ -104,8 +104,17 @@ public class ShowActivities extends AppCompatActivity {
             switch (direction) {
                 case ItemTouchHelper.LEFT:
 //                    Toast.makeText(recyclerView.getContext(), "" + position+", "+key, Toast.LENGTH_SHORT).show();
-                    DatabaseReference delRef = myRef.child(key);
-                    delRef.removeValue();
+                    myRef.child(key).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(ShowActivities.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ShowActivities.this, "Data gagal dihapus", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     break;
             }
         }

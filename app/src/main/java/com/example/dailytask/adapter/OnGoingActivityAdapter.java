@@ -52,7 +52,6 @@ public class OnGoingActivityAdapter extends RecyclerView.Adapter<OnGoingActivity
             }
         }
         holder.every_day.setVisibility(View.GONE);
-        holder.check.setImageResource(R.drawable.ic_baseline_check_circle_24);
     }
 
     @Override
@@ -61,13 +60,11 @@ public class OnGoingActivityAdapter extends RecyclerView.Adapter<OnGoingActivity
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView check;
         TextView title, time, every, monday, tuesday, wednesday, thursday, friday,
                 saturday, sunday;
         LinearLayout every_day;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            check = itemView.findViewById(R.id.delete_btn_activity);
             time = itemView.findViewById(R.id.reminder_time_activity);
             title = itemView.findViewById(R.id.title_activity);
             every = itemView.findViewById(R.id.every_activity);

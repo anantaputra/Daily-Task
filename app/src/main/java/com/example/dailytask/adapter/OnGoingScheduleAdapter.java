@@ -57,7 +57,6 @@ public class OnGoingScheduleAdapter extends RecyclerView.Adapter<OnGoingSchedule
         holder.notes.setText(result.getCatatan());
         holder.every_day.setVisibility(View.GONE);
         holder.dates.setVisibility(View.GONE);
-        holder.delete.setVisibility(View.GONE);
     }
 
     @Override
@@ -66,7 +65,6 @@ public class OnGoingScheduleAdapter extends RecyclerView.Adapter<OnGoingSchedule
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView delete;
         TextView reminder, title, notes, every, monday, tuesday, wednesday, thursday, friday,
                 saturday, sunday, date;
         LinearLayout every_day, dates;
@@ -86,7 +84,6 @@ public class OnGoingScheduleAdapter extends RecyclerView.Adapter<OnGoingSchedule
             date        = itemView.findViewById(R.id.for_date);
             every_day   = itemView.findViewById(R.id.every_day);
             dates       = itemView.findViewById(R.id.dates);
-            delete      = itemView.findViewById(R.id.delete_btn);
         }
     }
 }

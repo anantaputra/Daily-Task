@@ -6,7 +6,7 @@ public class User {
     public User(String username, String jenisKelamin, String tgllahir, String email, String foto) {
         this.username = username;
         this.jenisKelamin = jenisKelamin;
-        Tgllahir = tgllahir;
+        this.Tgllahir = tgllahir;
         this.email = email;
         this.foto = foto;
     }
