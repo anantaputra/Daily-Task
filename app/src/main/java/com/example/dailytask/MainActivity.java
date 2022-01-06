@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void getToday() {
         calendar = Calendar.getInstance();
         DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
-        DateFormat format = new SimpleDateFormat("EE", Locale.US);
+        DateFormat format = new SimpleDateFormat("EE");
         date = dateFormat.format(calendar.getTime());
         day = format.format(calendar.getTime());
         Log.d("today", day);
